@@ -5,14 +5,14 @@
 </ion-header>
 
 <ion-content padding>
-  <ion-card>
-    <img [src]="imgUrl"/>
+  <ion-card *ngFor="let movie of topRatedMovies">
+    <img [src]="IMG_ROOT+movie.poster_path" />
     <ion-card-content>
       <ion-card-title>
-        Nine Inch Nails Live
+        {{movie.title}}
       </ion-card-title>
       <p>
-        The most popular industrial group ever, and largely responsible for bringing the music to a mass audience.
+        {{movie.overview}}
       </p>
     </ion-card-content>
   </ion-card>
