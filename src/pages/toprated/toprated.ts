@@ -3,6 +3,7 @@ import { NavController } from 'ionic-angular';
 // import { HTTP } from "@ionic-native/http";
 import { Http, Headers } from "@angular/http";
 import { ServicesApiProvider } from "../../providers/services-api";
+import { MoviedetailsPage } from "../moviedetails/moviedetails";
 
 @Component({
   selector: 'page-home',
@@ -42,7 +43,10 @@ export class TopratedPage implements OnInit {
       .catch((error) => {
         console.log(error.json());
       });
-      
-  }
+  };
+
+  goToMovieDetails(movie): any {
+    this.navCtrl.push(MoviedetailsPage, { 'movie': movie, 'IMG_ROOT': this.IMG_ROOT });
+  };
 
 }

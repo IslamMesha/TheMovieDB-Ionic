@@ -5,7 +5,7 @@
 </ion-header>
 
 <ion-content padding>
-  <ion-card *ngFor="let movie of topRatedMovies">
+  <ion-card (click)="goToMovieDetails(movie)" *ngFor="let movie of topRatedMovies">
     <img [src]="IMG_ROOT+movie.poster_path" />
     <ion-card-content>
       <ion-card-title>

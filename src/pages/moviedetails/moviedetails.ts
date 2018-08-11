@@ -15,11 +15,18 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class MoviedetailsPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  movie: object = {};
+  IMG_ROOT: string = "";
+
+  constructor(
+    public navCtrl: NavController,
+    public navParams: NavParams
+  ) {
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad MoviedetailsPage');
+    this.movie = this.navParams.get('movie');
+    this.IMG_ROOT = this.navParams.get('IMG_ROOT');
   }
 
 }
