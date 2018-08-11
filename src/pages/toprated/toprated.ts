@@ -29,28 +29,19 @@ export class TopratedPage implements OnInit {
     this.IMG_ROOT = API_OPIONS['IMG_ROOT'];
 
     // Get the Top Rated Movies.
-    // this.http.get("https://api.themoviedb.org/3/movie/top_rated?api_key=" + API_OPIONS['API_KEY']
-    //   , { headers: headers }).toPromise()
-    //   .then((response) => {
-    //     console.log(response.json().results[0]);
+    this.http.get("https://api.themoviedb.org/3/movie/top_rated?api_key=" + API_OPIONS['API_KEY']
+      , { headers: headers }).toPromise()
+      .then((response) => {
+        console.log(response.json().results[0]);
 
-    //     response.json().results.forEach(movie => {
-    //       this.topRatedMovies.push(movie);
-    //     });
+        response.json().results.forEach(movie => {
+          this.topRatedMovies.push(movie);
+        });
 
-    //   })
-    //   .catch((error) => {
-    //     console.log(error.json());
-    //   });
-
-      // While Development.
-      this.topRatedMovies.push(
-        {
-          title:"Islam Mesha",
-          overview:"The most great developer."
-        }
-      )
-      console.log(this.topRatedMovies);
+      })
+      .catch((error) => {
+        console.log(error.json());
+      });
       
   }
 
