@@ -4,7 +4,7 @@ import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
 import { HttpModule } from "@angular/http";
 import { MyApp } from './app.component';
 
-import { AboutPage } from '../pages/about/about';
+import { PopularPage } from "../pages/popular/popular";
 import { ContactPage } from '../pages/contact/contact';
 import { TopratedPage } from '../pages/toprated/toprated';
 import { TabsPage } from '../pages/tabs/tabs';
@@ -19,7 +19,7 @@ import { HttpClientModule } from '@angular/common/http';
 @NgModule({
   declarations: [
     MyApp,
-    AboutPage,
+    PopularPage,
     ContactPage,
     TopratedPage,
     TabsPage,
@@ -34,7 +34,7 @@ import { HttpClientModule } from '@angular/common/http';
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
-    AboutPage,
+    PopularPage,
     ContactPage,
     TopratedPage,
     TabsPage,

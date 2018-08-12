@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 
-import { AboutPage } from '../about/about';
+import { PopularPage } from '../popular/popular';
 import { ContactPage } from '../contact/contact';
 import { TopratedPage } from "../toprated/toprated";
 import { MoviedetailsPage } from "../moviedetails/moviedetails";
@@ -11,7 +11,7 @@ import { MoviedetailsPage } from "../moviedetails/moviedetails";
 export class TabsPage {
 
   topratedRoot = TopratedPage;
-  aboutRoot = AboutPage;
+  popularRoot = PopularPage;
   contactRoot = ContactPage;
   movieDetailsRoot = MoviedetailsPage;
 
