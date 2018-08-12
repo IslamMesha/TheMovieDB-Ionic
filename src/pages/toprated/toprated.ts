@@ -11,7 +11,7 @@ import { MoviedetailsPage } from "../moviedetails/moviedetails";
 export class TopratedPage implements OnInit {
 
   topRatedMovies: Array<object> = [];
-  IMG_ROOT: string = ServicesApiProvider.getApiOptions()['IMG_ROOT']
+  IMG_ROOT: string = ServicesApiProvider.getApiOptions()['IMG_ROOT'];
 
   constructor(
 
