@@ -28,12 +28,11 @@ export class ServicesApiProvider {
 
     var url: string = API_OPIONS['API_ROOT'] + sortBy + "?api_key=" + API_OPIONS['API_KEY'] + "&language="
       + API_OPIONS['LANGUAGE'] + "&page=" + page + "&region=" + region;
-    // url = "https://api.themoviedb.org/3/movie/top_rated?api_key=d8dae1093d4889e05aae991ff19bd91f&language=en-US&page=1&region=egypt"
     var movies: Array<object> = [];
 
     this.http.get(url, { headers: headers }).toPromise()
       .then((response) => {
-        console.log(response.json().results[0]);
+        console.log((response.json().results[0]));
 
         response.json().results.forEach(movie => {
           movies.push(movie);

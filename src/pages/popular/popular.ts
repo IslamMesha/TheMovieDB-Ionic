@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NavController } from 'ionic-angular/';
+import { NavController, LoadingController } from 'ionic-angular/';
 import { ServicesApiProvider } from '../../providers/services-api';
 import { MoviedetailsPage } from '../moviedetails/moviedetails';
 
@@ -14,8 +14,9 @@ export class PopularPage {
 
   constructor(
 
-    public navCtrl: NavController,
-    private servicesApiProvider: ServicesApiProvider
+    private navCtrl: NavController,
+    private servicesApiProvider: ServicesApiProvider,
+    private loadingCtrl: LoadingController
 
   ) {
 
@@ -23,6 +24,17 @@ export class PopularPage {
 
   ngOnInit() {
     this.popularMovies = this.servicesApiProvider.getMovies("popular");
+
+    let loading = this.loadingCtrl.create({
+      spinner: 'bubbles',
+      content: 'Loading Please Wait...'
+    });
+
+    loading.present();
+
+    setTimeout(() => {
+      loading.dismiss();
+    }, 5000);
   };
 
   goToMovieDetails(movie): any {
