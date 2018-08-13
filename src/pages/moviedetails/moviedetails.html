@@ -17,20 +17,34 @@
         {{movie.title}}
       </ion-card-title>
       <p>
+        <ion-icon name='quote' item-start style="color: #d03e84"></ion-icon>
         {{movie.overview}}
+        <ion-icon name='quote' item-start style="color: #d03e84"></ion-icon>
       </p>
     </ion-card-content>
 
     <ion-item>
-      <ion-icon name='musical-notes' item-start style="color: #d03e84"></ion-icon>
-      Albums
-      <ion-badge item-end>9</ion-badge>
+      <ion-icon name='clock' item-start style="color: #55acee"></ion-icon>
+      Release Date
+      <ion-badge color="dark" item-end> {{movie.release_date|date}} </ion-badge>
     </ion-item>
 
     <ion-item>
-      <ion-icon name='logo-twitter' item-start style="color: #55acee"></ion-icon>
-      Followers
-      <ion-badge item-end>260k</ion-badge>
+      <ion-icon name='podium' item-start style="color: #d03e84"></ion-icon>
+      Popularity
+      <ion-badge color="dark" item-end> {{movie.popularity}} </ion-badge>
+    </ion-item>
+
+    <ion-item>
+      <ion-icon name='star' item-start style="color: #FFD700"></ion-icon>
+      Vote Average
+      <ion-badge color="dark" item-end>{{movie.vote_average}}</ion-badge>
+    </ion-item>
+
+    <ion-item>
+      <ion-icon name='trending-up' item-start style="color: #55acee"></ion-icon>
+      Vote Count
+      <ion-badge color="dark" item-end>{{movie.vote_count}}</ion-badge>
     </ion-item>
 
   </ion-card>
