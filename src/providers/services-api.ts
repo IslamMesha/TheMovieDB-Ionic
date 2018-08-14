@@ -4,6 +4,8 @@ import { Http, Headers } from "@angular/http";
 @Injectable()
 export class ServiceApiProvider {
 
+  private movies: Array<object> = [];
+
   constructor(
     private http: Http
   ) {
@@ -29,22 +31,21 @@ export class ServiceApiProvider {
     var url: string = API_OPIONS['API_ROOT'] + sortBy + "?api_key=" + API_OPIONS['API_KEY'] + "&language="
       + API_OPIONS['LANGUAGE'] + "&page=" + page + "&region=" + region;
 
-    var movies: Array<object> = [];
 
-    this.http.get(url, { headers: headers }).toPromise()
-      .then((response) => {
-
-        response.json().results.forEach(movie => {
-          movies.push(movie);
-        });
-
-      })
-      .catch((error) => {
-        console.log(error.json());
+    this.http.get(url, { headers: headers }).subscribe((response) => {
+      console.log('Observer got the next movie: ', response.json().results);
+      response.json().results.forEach(movie => {
+        this.movies.push(movie);
       });
-    console.log("Page number: ", page + " Movies are: ", movies);
+    }, (error) => {
+      console.error('Observer got an error: ' + error);
+    }, () => {
+      console.log('Observer got a complete notification.');
+    });
+    
+    console.log("Page number: ", page + " Movies are: ", this.movies);
 
-    return movies;
+    return this.movies;
   }
 
 }

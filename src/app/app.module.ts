@@ -14,7 +14,6 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { ServiceApiProvider } from '../providers/services-api';
 import { HttpClientModule } from '@angular/common/http';
-// import { HTTP } from '@ionic-native/http';
 
 @NgModule({
   declarations: [
@@ -45,7 +44,6 @@ import { HttpClientModule } from '@angular/common/http';
     SplashScreen,
     { provide: ErrorHandler, useClass: IonicErrorHandler },
     ServiceApiProvider,
-    // HTTP,
   ]
 })
 export class AppModule { }

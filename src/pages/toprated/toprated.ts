@@ -27,14 +27,14 @@ export class TopratedPage {
 
   ngOnInit() {
 
-    this.topRatedMovies = this.serviceApiProvider.getMovies();
-
     let loading = this.loadingCtrl.create({
       spinner: 'bubbles',
       content: 'Loading Please Wait...'
     });
 
     loading.present();
+    this.topRatedMovies = this.serviceApiProvider.getMovies();
+    console.log(this.topRatedMovies.length);
 
     setTimeout(() => {
       loading.dismiss();
@@ -42,33 +42,20 @@ export class TopratedPage {
 
   };
 
-  goToMovieDetails(movie): any {
-    console.log(movie);
-    this.navCtrl.push(MoviedetailsPage, { 'movie': movie, 'IMG_ROOT': this.IMG_ROOT });
-  };
-
   getMoreMovies(event) {
 
     console.log("Event is: ", event);
 
-    for (let index = 0; index < this.topRatedMovies.length; index++) {
-      this.topRatedMovies.push(this.topRatedMovies[index]);
-    }
-    debugger
-
-    // this.serviceApiProvider.getMovies(undefined, ++this.page).forEach((movie, index) => {
-    //   this.topRatedMovies.push(movie);
-    //   debugger;
-    // });
-
-    // setTimeout(() => {
-    //   // App logic to determine if all data is loaded and disable the infinite scroll.
-    //   if (this.topRatedMovies.length > 20) {
-    //     debugger
-    //   }
-    // }, 500);
+    let moreMovies = this.serviceApiProvider.getMovies(undefined, ++this.page);
+    this.topRatedMovies.concat(moreMovies);
+    this.infiniteScroll.complete();
 
     console.log("New Movies Array: ", this.topRatedMovies.length);
-  }
+  };
+
+  goToMovieDetails(movie): any {
+    console.log(movie);
+    this.navCtrl.push(MoviedetailsPage, { 'movie': movie, 'IMG_ROOT': this.IMG_ROOT });
+  };
 
 };
