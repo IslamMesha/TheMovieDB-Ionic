@@ -2,12 +2,12 @@ import { Injectable } from '@angular/core';
 import { Http, Headers } from "@angular/http";
 
 @Injectable()
-export class ServicesApiProvider {
+export class ServiceApiProvider {
 
   constructor(
     private http: Http
   ) {
-    console.log('Hello ServicesApiProvider Provider');
+    console.log('Hello ServiceApiProvider Provider');
   }
 
   public static getApiOptions(): object {
@@ -24,7 +24,7 @@ export class ServicesApiProvider {
   public getMovies(sortBy: string = "top_rated", page: number = 1, region: string = ""): Array<object> {
 
     const headers = new Headers({ 'Content-Type': 'application/json;charset=utf-8' });
-    const API_OPIONS = ServicesApiProvider.getApiOptions();
+    const API_OPIONS = ServiceApiProvider.getApiOptions();
 
     var url: string = API_OPIONS['API_ROOT'] + sortBy + "?api_key=" + API_OPIONS['API_KEY'] + "&language="
       + API_OPIONS['LANGUAGE'] + "&page=" + page + "&region=" + region;

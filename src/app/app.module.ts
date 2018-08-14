@@ -12,7 +12,7 @@ import { MoviedetailsPage } from "../pages/moviedetails/moviedetails";
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
-import { ServicesApiProvider } from '../providers/services-api';
+import { ServiceApiProvider } from '../providers/services-api';
 import { HttpClientModule } from '@angular/common/http';
 // import { HTTP } from '@ionic-native/http';
 
@@ -44,7 +44,7 @@ import { HttpClientModule } from '@angular/common/http';
     StatusBar,
     SplashScreen,
     { provide: ErrorHandler, useClass: IonicErrorHandler },
-    ServicesApiProvider,
+    ServiceApiProvider,
     // HTTP,
   ]
 })

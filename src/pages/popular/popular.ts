@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { NavController, LoadingController } from 'ionic-angular/';
-import { ServicesApiProvider } from '../../providers/services-api';
+import { ServiceApiProvider } from '../../providers/services-api';
 import { MoviedetailsPage } from '../moviedetails/moviedetails';
 
 @Component({
@@ -10,12 +10,12 @@ import { MoviedetailsPage } from '../moviedetails/moviedetails';
 export class PopularPage {
 
   popularMovies: Array<object> = [];
-  IMG_ROOT: string = ServicesApiProvider.getApiOptions()['IMG_ROOT'];
+  IMG_ROOT: string = ServiceApiProvider.getApiOptions()['IMG_ROOT'];
 
   constructor(
 
     private navCtrl: NavController,
-    private servicesApiProvider: ServicesApiProvider,
+    private serviceApiProvider: ServiceApiProvider,
     private loadingCtrl: LoadingController
 
   ) {
@@ -23,7 +23,7 @@ export class PopularPage {
   };
 
   ngOnInit() {
-    this.popularMovies = this.servicesApiProvider.getMovies("popular");
+    this.popularMovies = this.serviceApiProvider.getMovies("popular");
 
     let loading = this.loadingCtrl.create({
       spinner: 'bubbles',
