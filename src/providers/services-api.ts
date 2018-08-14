@@ -28,11 +28,11 @@ export class ServicesApiProvider {
 
     var url: string = API_OPIONS['API_ROOT'] + sortBy + "?api_key=" + API_OPIONS['API_KEY'] + "&language="
       + API_OPIONS['LANGUAGE'] + "&page=" + page + "&region=" + region;
+
     var movies: Array<object> = [];
 
     this.http.get(url, { headers: headers }).toPromise()
       .then((response) => {
-        console.log((response.json().results[0]));
 
         response.json().results.forEach(movie => {
           movies.push(movie);
@@ -42,6 +42,8 @@ export class ServicesApiProvider {
       .catch((error) => {
         console.log(error.json());
       });
+    console.log("Page number: ", page + " Movies are: ", movies);
+
     return movies;
   }
 

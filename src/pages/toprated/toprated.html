@@ -5,22 +5,22 @@
 </ion-header>
 
 <ion-content padding>
-  <ion-card (click)="goToMovieDetails(movie)" *ngFor="let movie of topRatedMovies">
-    <img [src]="IMG_ROOT+movie.poster_path" />
-    <ion-card-content>
-      <ion-card-title>
-        {{movie.title}}
-      </ion-card-title>
-      <p>
-        <ion-icon name='quote' item-start style="color: #d03e84"></ion-icon>
-        {{movie.overview}}
-        <ion-icon name='quote' item-start style="color: #d03e84"></ion-icon>
-      </p>
-    </ion-card-content>
-  </ion-card>
-  <ion-fab right bottom>
-    <button ion-fab>
-      <ion-icon name="search"></ion-icon>
-    </button>
-  </ion-fab>
+
+  <ion-list>
+    <ion-grid>
+      <ion-row>
+        <ion-col *ngFor="let movie of topRatedMovies" col-6>
+          <ion-card>
+            <img (click)="goToMovieDetails(movie)" [src]="IMG_ROOT+movie.poster_path" />
+          </ion-card>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-list>
+
+  <ion-infinite-scroll threshold="500px" (ionInfinite)="getMoreMovies($event)">
+    <ion-infinite-scroll-content loadingSpinner="bubbles" loadingText="Loading more movies...">
+    </ion-infinite-scroll-content>
+  </ion-infinite-scroll>
+
 </ion-content>

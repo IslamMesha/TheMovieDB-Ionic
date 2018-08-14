@@ -38,6 +38,7 @@ export class PopularPage {
   };
 
   goToMovieDetails(movie): any {
+    console.log(movie);
     this.navCtrl.push(MoviedetailsPage, { 'movie': movie, 'IMG_ROOT': this.IMG_ROOT });
   };
 
