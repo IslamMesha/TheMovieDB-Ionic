@@ -33,8 +33,6 @@ export class ServiceApiProvider {
     let url: string = API_OPIONS['API_ROOT'] + sortBy + "?api_key=" + API_OPIONS['API_KEY'] + "&language="
       + API_OPIONS['LANGUAGE'] + "&page=" + page + "&region=" + region;
 
-    let movies: Array<object> = [];
-
     this.http.get(url, { headers: headers }).subscribe((response) => {
 
       console.log('Observer got the next movie: ', response.json().results);
@@ -42,6 +40,7 @@ export class ServiceApiProvider {
       response.json().results.forEach(movie => {
         this.movies.push(movie);
       });
+
     },
       (error) => {
         console.error('Observer got an error: ' + error);

@@ -11,7 +11,7 @@
       <ion-row>
         <ion-col *ngFor="let movie of topRatedMovies" col-6>
           <ion-card>
-            <img (click)="goToMovieDetails(movie)" [src]="IMG_ROOT+movie.poster_path" />
+            <img [title]="movie.title" (click)="goToMovieDetails(movie)" [src]="IMG_ROOT+movie.poster_path" />
           </ion-card>
         </ion-col>
       </ion-row>

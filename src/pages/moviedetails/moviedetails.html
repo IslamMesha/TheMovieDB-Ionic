@@ -10,7 +10,7 @@
 
   <ion-card>
 
-    <img [src]="IMG_ROOT+movie.poster_path" />
+    <a [href]="movie.original_language"><img [title]="movie.title" [src]="IMG_ROOT+movie.poster_path" /></a>
 
     <ion-card-content>
       <ion-card-title>
