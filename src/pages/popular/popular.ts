@@ -1,5 +1,5 @@
-import { Component } from '@angular/core';
-import { NavController, LoadingController } from 'ionic-angular/';
+import { Component, ViewChild } from '@angular/core';
+import { NavController, LoadingController, InfiniteScroll } from 'ionic-angular/';
 import { ServiceApiProvider } from '../../providers/services-api';
 import { MoviedetailsPage } from '../moviedetails/moviedetails';
 
@@ -9,8 +9,11 @@ import { MoviedetailsPage } from '../moviedetails/moviedetails';
 })
 export class PopularPage {
 
-  popularMovies: Array<object> = [];
-  IMG_ROOT: string = ServiceApiProvider.getApiOptions()['IMG_ROOT'];
+  @ViewChild(InfiniteScroll) infiniteScroll: InfiniteScroll;
+
+  private popularMovies: Array<object> = [];
+  private IMG_ROOT: string = ServiceApiProvider.getApiOptions()['IMG_ROOT'];
+  private page: number = 1;
 
   constructor(
 
@@ -23,6 +26,7 @@ export class PopularPage {
   };
 
   ngOnInit() {
+
     this.popularMovies = this.serviceApiProvider.getMovies("popular");
 
     let loading = this.loadingCtrl.create({
@@ -34,8 +38,20 @@ export class PopularPage {
 
     setTimeout(() => {
       loading.dismiss();
-    }, 5000);
+    }, 2000);
   };
+
+  getMoreMovies(event) {
+
+    console.log("Event is: ", event);
+
+    let moreMovies = this.serviceApiProvider.getMovies(undefined, ++this.page);
+    this.popularMovies.concat(moreMovies);
+    this.infiniteScroll.complete();
+
+    console.log("New Movies Array: ", this.popularMovies.length);
+  };
+
 
   goToMovieDetails(movie): any {
     console.log(movie);
