@@ -1,4 +1,4 @@
-# themoviedb-ionic
+# themoviesapp-ionic
 A movie app using Ionic Cross Platform Technology which calling " https://www.themoviedb.org " API.
 
 Project Features:
