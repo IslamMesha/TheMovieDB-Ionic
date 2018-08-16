@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavParams } from 'ionic-angular';
 import { FavouriteProvider } from '../../providers/favourite';
+import { Storage } from '@ionic/storage';
 
 @IonicPage()
 @Component({
@@ -13,9 +14,9 @@ export class MoviedetailsPage {
   IMG_ROOT: string = "";
 
   constructor(
-    private navCtrl: NavController,
     private navParams: NavParams,
-    private favourite: FavouriteProvider
+    private favourite: FavouriteProvider,
+    private storage: Storage
   ) {
   }
 
@@ -25,12 +26,25 @@ export class MoviedetailsPage {
   };
 
   addToFavouriteMovies(movie) {
-    this.favourite.setAFavouriteMovie(movie);
-    this.showMe();
-  };
 
-  showMe(){
-    console.log(this.favourite.getTheFavouriteMovies());
+    console.log("DataBase Driver: ", this.storage.driver);
+
+    this.storage.set("movie", JSON.stringify(movie))
+      .then((name) => {
+        console.log("Movie stored successfully: ", movie);
+      })
+      .catch((error) => {
+        console.error(error);
+      });
+
+    this.storage.get("movie")
+      .then((movie) => {
+        console.log("Get Movie: ", JSON.parse(movie));
+      })
+      .catch((error) => {
+        console.error(error);
+      });
+
   };
 
 };
