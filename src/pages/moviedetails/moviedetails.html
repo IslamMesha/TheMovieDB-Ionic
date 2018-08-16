@@ -13,6 +13,11 @@
     <a [href]="movie.original_language"><img [title]="movie.title" [src]="IMG_ROOT+movie.poster_path" /></a>
 
     <ion-card-content>
+
+      <span (click)="addToFavouriteMovies(movie)" class="favourite-icon-cont" title="Markup as a favourite movie.">
+        <ion-icon class="favourite-icon" name='star' item-start></ion-icon>
+      </span>
+
       <ion-card-title>
         {{movie.title}}
       </ion-card-title>

@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { FavouriteProvider } from '../../providers/favourite';
 
 @IonicPage()
 @Component({
@@ -12,14 +13,24 @@ export class MoviedetailsPage {
   IMG_ROOT: string = "";
 
   constructor(
-    public navCtrl: NavController,
-    public navParams: NavParams
+    private navCtrl: NavController,
+    private navParams: NavParams,
+    private favourite: FavouriteProvider
   ) {
   }
 
   ionViewDidLoad() {
     this.movie = this.navParams.get('movie');
     this.IMG_ROOT = this.navParams.get('IMG_ROOT');
-  }
+  };
 
-}
+  addToFavouriteMovies(movie) {
+    this.favourite.setAFavouriteMovie(movie);
+    this.showMe();
+  };
+
+  showMe(){
+    console.log(this.favourite.getTheFavouriteMovies());
+  };
+
+};

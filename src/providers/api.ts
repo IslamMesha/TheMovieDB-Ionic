@@ -20,7 +20,7 @@ export class ServiceApiProvider {
       API_KEY: "d8dae1093d4889e05aae991ff19bd91f",
       IMG_ROOT: "https://image.tmdb.org/t/p/w500/",
       LANGUAGE: "en-US",
-      PAGE: 1,
+      PAGE: 1,  
       REGION: ""
     };
   };
@@ -37,10 +37,13 @@ export class ServiceApiProvider {
 
       console.log('Observer got the next movie: ', response.json().results);
 
-      response.json().results.forEach(movie => {
-        this.movies.push(movie);
-      });
-
+      if (response.status === 200) {
+        response.json().results.forEach(movie => {
+          if (movie.adult === false) {
+            this.movies.push(movie);
+          }
+        });
+      }
     },
       (error) => {
         console.error('Observer got an error: ' + error);

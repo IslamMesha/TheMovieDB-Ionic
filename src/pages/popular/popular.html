@@ -10,11 +10,9 @@
 
   <ion-list>
     <ion-grid>
-      <ion-row>
-        <ion-col *ngFor="let movie of popularMovies" col-6>
-          <ion-card>
-            <img (click)="goToMovieDetails(movie)" [src]="IMG_ROOT+movie.poster_path" />
-          </ion-card>
+      <ion-row align-items-center>
+        <ion-col *ngFor="let movie of popularMovies" col-6 col-md-3>
+          <img class="moviePoster" (click)="goToMovieDetails(movie)" [src]="IMG_ROOT+movie.poster_path" />
         </ion-col>
       </ion-row>
     </ion-grid>

@@ -12,8 +12,10 @@ import { MoviedetailsPage } from "../pages/moviedetails/moviedetails";
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
-import { ServiceApiProvider } from '../providers/services-api';
+import { ServiceApiProvider } from '../providers/api';
 import { HttpClientModule } from '@angular/common/http';
+import { IonicStorageModule } from "@ionic/storage";
+import { FavouriteProvider } from '../providers/favourite';
 
 @NgModule({
   declarations: [
@@ -28,8 +30,11 @@ import { HttpClientModule } from '@angular/common/http';
     BrowserModule,
     HttpModule,
     HttpClientModule,
-    IonicModule.forRoot(MyApp)
-  ],
+    IonicModule.forRoot(MyApp),
+    IonicStorageModule.forRoot({
+      name: 'favouriteDB',
+      driverOrder: ['sqlite', 'indexeddb', 'websql']
+    })],
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
@@ -44,6 +49,7 @@ import { HttpClientModule } from '@angular/common/http';
     SplashScreen,
     { provide: ErrorHandler, useClass: IonicErrorHandler },
     ServiceApiProvider,
+    FavouriteProvider,
   ]
 })
 export class AppModule { }

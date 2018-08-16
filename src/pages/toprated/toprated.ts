@@ -1,6 +1,6 @@
 import { Component, ViewChild } from '@angular/core';
 import { NavController, LoadingController, InfiniteScroll } from 'ionic-angular/';
-import { ServiceApiProvider } from "../../providers/services-api";
+import { ServiceApiProvider } from "../../providers/api";
 import { MoviedetailsPage } from "../moviedetails/moviedetails";
 
 @Component({
