@@ -33,7 +33,7 @@ export class TopratedPage {
     });
 
     loading.present();
-    this.topRatedMovies = this.serviceApiProvider.getMovies();
+    this.topRatedMovies = this.serviceApiProvider.getTopRatedMovies();
     console.log(this.topRatedMovies.length);
 
     setTimeout(() => {
@@ -46,7 +46,7 @@ export class TopratedPage {
 
     console.log("Event is: ", event);
 
-    let moreMovies = this.serviceApiProvider.getMovies(undefined, ++this.page);
+    let moreMovies = this.serviceApiProvider.getTopRatedMovies(undefined, ++this.page);
     this.topRatedMovies.concat(moreMovies);
     this.infiniteScroll.complete();
 
