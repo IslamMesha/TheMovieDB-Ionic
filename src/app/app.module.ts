@@ -9,12 +9,10 @@ import { ContactPage } from '../pages/contact/contact';
 import { TopratedPage } from '../pages/toprated/toprated';
 import { TabsPage } from '../pages/tabs/tabs';
 import { MoviedetailsPage } from "../pages/moviedetails/moviedetails";
-
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { ServiceApiProvider } from '../providers/api';
 import { HttpClientModule } from '@angular/common/http';
-import { IonicStorageModule } from "@ionic/storage";
 import { FavouriteProvider } from '../providers/favourite';
 
 @NgModule({
@@ -30,11 +28,8 @@ import { FavouriteProvider } from '../providers/favourite';
     BrowserModule,
     HttpModule,
     HttpClientModule,
-    IonicModule.forRoot(MyApp),
-    IonicStorageModule.forRoot({
-      name: 'favouriteDB',
-      driverOrder: ['sqlite', 'indexeddb', 'websql']
-    })],
+    IonicModule.forRoot(MyApp)
+  ],
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
