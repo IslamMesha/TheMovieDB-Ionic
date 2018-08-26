@@ -1,7 +1,5 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavParams } from 'ionic-angular';
-import { FavouriteProvider } from '../../providers/favourite';
-import firebase from 'firebase';
 
 @IonicPage()
 @Component({
@@ -15,7 +13,6 @@ export class MoviedetailsPage {
 
   constructor(
     private navParams: NavParams,
-    private favourite: FavouriteProvider,
   ) {
 
   };

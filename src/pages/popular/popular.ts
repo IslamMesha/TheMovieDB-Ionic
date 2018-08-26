@@ -27,7 +27,7 @@ export class PopularPage {
 
   ngOnInit() {
 
-    this.popularMovies = this.serviceApiProvider.getMovies("popular");
+    this.popularMovies = this.serviceApiProvider.getPopularMovies("popular");
 
     let loading = this.loadingCtrl.create({
       spinner: 'bubbles',
@@ -45,7 +45,7 @@ export class PopularPage {
 
     console.log("Event is: ", event);
 
-    let moreMovies = this.serviceApiProvider.getMovies(undefined, ++this.page);
+    let moreMovies = this.serviceApiProvider.getPopularMovies(undefined, ++this.page);
     this.popularMovies.concat(moreMovies);
     this.infiniteScroll.complete();
 
