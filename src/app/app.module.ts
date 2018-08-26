@@ -14,7 +14,6 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { ServiceApiProvider } from '../providers/api';
 import { HttpClientModule } from '@angular/common/http';
-import { IonicStorageModule } from "@ionic/storage";
 import { FavouriteProvider } from '../providers/favourite';
 
 @NgModule({
@@ -31,10 +30,7 @@ import { FavouriteProvider } from '../providers/favourite';
     HttpModule,
     HttpClientModule,
     IonicModule.forRoot(MyApp),
-    IonicStorageModule.forRoot({
-      name: 'favouriteDB',
-      driverOrder: ['sqlite', 'indexeddb', 'websql']
-    })],
+  ],
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
