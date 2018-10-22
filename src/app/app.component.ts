@@ -2,18 +2,8 @@ import { Component } from '@angular/core';
 import { Platform } from 'ionic-angular/';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
-import firebase from 'firebase';
 
 import { TabsPage } from '../pages/tabs/tabs';
-
-export const config = {
-  apiKey: "AIzaSyCx3QsBvaPLvHSWWaWzN3wI0qidxn8LNfI",
-  authDomain: "ionic-movieapp.firebaseapp.com",
-  databaseURL: "https://ionic-movieapp.firebaseio.com",
-  projectId: "ionic-movieapp",
-  storageBucket: "ionic-movieapp.appspot.com",
-  messagingSenderId: "671672660277"
-};
 
 @Component({
   templateUrl: 'app.html'
@@ -28,6 +18,5 @@ export class MyApp {
       statusBar.styleDefault();
       splashScreen.hide();
     });
-    firebase.initializeApp(config)
   }
 }

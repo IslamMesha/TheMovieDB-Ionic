@@ -20,13 +20,6 @@ export class MoviedetailsPage {
   ionViewDidLoad() {
     this.movie = this.navParams.get('movie');
     this.IMG_ROOT = this.navParams.get('IMG_ROOT');
-    firebase.database().ref('favouriteMovies/').on('value', response => {
-      console.log(response);
-      debugger
-      response.forEach((movie) => {
-        console.log("Firebase Movie: ", movie);
-      })
-    });
   };
 
   addToFavouriteMovies(movie) {
